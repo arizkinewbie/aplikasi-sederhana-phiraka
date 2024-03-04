@@ -13,7 +13,7 @@
         <form action="<?= base_url('/auth/login'); ?>" method="post">
             <div class="mb-3">
                 <label for="username" class="form-label">Nama</label>
-                <input type="text" class="form-control" name="username" id="username" required>
+                <input type="text" class="form-control" name="username" id="username" autocomplete="username" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>

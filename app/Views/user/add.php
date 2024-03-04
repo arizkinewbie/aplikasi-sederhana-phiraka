@@ -7,7 +7,7 @@
         <form action="<?= base_url('user/create'); ?>" method="post" class="needs-validation" novalidate>
             <div class="mb-3">
                 <label for="username" class="form-label">Nama</label>
-                <input type="text" class="form-control" name="username" id="username" maxlength="128" required>
+                <input type="text" class="form-control" name="username" id="username" maxlength="128" autocomplete="username" required>
                 <div class="invalid-feedback">Username tidak boleh kosong dan maksimal 128 karakter.</div>
             </div>
             <div class="mb-3">
