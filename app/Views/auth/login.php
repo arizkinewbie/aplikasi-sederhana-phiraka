@@ -17,7 +17,7 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password" required>
+                <input type="password" class="form-control" name="password" id="password" autocomplete="current-password" required>
             </div>
             <!-- tambahkan captcha -->
             <div class="mb-3">

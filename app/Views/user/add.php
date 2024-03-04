@@ -12,7 +12,7 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password" pattern=".{5,8}" required>
+                <input type="password" class="form-control" name="password" id="password" pattern=".{5,8}" autocomplete="current-password" required>
                 <div class="invalid-feedback">Password tidak boleh kosong dan diisi 5-8 karakter.</div>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>

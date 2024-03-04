@@ -14,7 +14,7 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password </label>
-                <input type="password" class="form-control" name="password" id="password" pattern=".{5,8}">
+                <input type="password" class="form-control" name="password" id="password" pattern=".{5,8}" autocomplete="current-password">
                 <div class="invalid-feedback">Password harus diisi 5-8 karakter.</div>
                 <span class="form-text">*biarkan kosong jika tidak ingin ubah password</span>
             </div>
