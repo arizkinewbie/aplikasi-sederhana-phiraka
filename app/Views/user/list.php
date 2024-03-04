@@ -1,10 +1,11 @@
 <?php echo view('templates/header'); ?>
 
 <div class="container mt-5">
-    <h2>DAFTAR USER</h2>
+    <h2>DAFTAR USER <a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger float-end">Logout</a>
+    </h2>
     <hr />
     <a href="<?= base_url('user/add'); ?>" class="btn btn-primary mb-3">Tambah User Baru</a>
-    <table id="usersTable" class="table table-striped" style="width:100%">
+    <table id="usersTable" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>No</th>
@@ -20,7 +21,7 @@
                     <td><?= $user['username']; ?></td>
                     <td><?= $user['CreateTime']; ?></td>
                     <td>
-                        <a href="<?= base_url('user/edit/' . $user['id']); ?>" class="btn btn-success">Edit</a>
+                        <a href="<?= base_url('user/edit/' . $user['id']); ?>" class="btn btn-success">Edit </a> |
                         <a href="<?= base_url('user/delete/' . $user['id']); ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Delete</a>
                     </td>
                 </tr>
