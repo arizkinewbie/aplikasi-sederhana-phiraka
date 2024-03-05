@@ -1,7 +1,7 @@
 <?php echo view('templates/header'); ?>
 
 <div class="container mt-5">
-    <h2>DAFTAR USER <a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger float-end">Logout</a>
+    <h2>DAFTAR USER <a href="#" class="btn btn-danger float-end logout">Logout</a>
     </h2>
     <hr />
     <a href="<?= base_url('user/add'); ?>" class="btn btn-primary mb-3">Tambah User Baru</a>
@@ -27,7 +27,7 @@
                     <td><?= $user['CreateTime']; ?></td>
                     <td>
                         <a href="<?= base_url('user/edit/' . $user['id']); ?>" class="btn btn-success">Edit </a> |
-                        <a href="<?= base_url('user/delete/' . $user['id']); ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Delete</a>
+                        <a href="#" class="btn btn-danger delete-user" data-id="<?= $user['id']; ?>" data-username=" <?= $user['username']; ?>">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -54,5 +54,42 @@
                 cell.getElementsByTagName('td')[0].innerHTML = i++;
             });
         }).draw();
+    });
+
+    document.querySelectorAll('.delete-user').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const userId = this.getAttribute('data-id');
+            const userName = this.getAttribute('data-username');
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "User " + userName + " akan dihapus dari database!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus User!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = `<?= base_url('user/delete/'); ?>${userId}`;
+                }
+            });
+        });
+    });
+
+    document.querySelectorAll('.logout').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'LOGOUT BERHASIL', 
+                html: 'Anda akan logout dalam 3 detik...',
+                icon: 'success',
+                timer: 3000,
+                showConfirmButton: false,
+                willClose: () => {
+                    window.location.href = '<?= base_url('auth/logout'); ?>';
+                }
+            });
+        });
     });
 </script>
