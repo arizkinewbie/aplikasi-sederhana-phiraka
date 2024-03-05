@@ -1,68 +1,76 @@
-# CodeIgniter 4 Application Starter
+<h1 align="center">
+<a href="https://github.com/arizkinewbie/fibonacci-phiraka" target="_blank">Fibonacci Phiraka</a>
+  <br>
+</h1>
 
-## What is CodeIgniter?
+<h4 align="center">Website interaktif yang dirancang untuk menghitung dan menampilkan bilangan Fibonacci dalam bentuk tabel. <br><br><a href="https://phiraka.arizkinewbie.com/fibonacci-phiraka/" target="_blank">LIVE DEMO HERE</a></h4>
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#credits">Credits</a> •
+  <a href="#license">License</a>
+</p>
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+![screenshot](https://raw.githubusercontent.com/arizkinewbie/fibonacci-phiraka/master/public/screenshot.png)
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Key Features
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **Penghitungan Bilangan Fibonacci**: Mampu menghitung deret bilangan Fibonacci secara efisien dengan input dari pengguna.
+- **Visualisasi Hasil**: Menampilkan bilangan Fibonacci yang dihasilkan dalam bentuk tabel yang rapi di halaman web, memudahkan pemahaman visual.
+- **Interaktivitas User-Friendly**: Antarmuka pengguna yang interaktif memungkinkan pengguna untuk dengan mudah memasukkan jumlah baris dan kolom yang diinginkan dan melihat hasilnya secara instan tanpa perlu memuat ulang halaman.
+- **Validasi Input Pengguna**: Memastikan input yang dimasukkan pengguna adalah valid dan memberikan umpan balik yang sesuai jika terjadi kesalahan.
+- **Customizable Visual Styling**: Dengan CSS yang mudah disesuaikan, pengembang dapat mengubah tampilan dan nuansa aplikasi sesuai keinginan.
+- **Angka tidak terbatas**: Menggunakan BC math library untuk menghitung bilangan Fibonacci hingga angka tak terbatas.
+- **Peringatan kesalahan**: Menampilkan informasi jika terjadi kesalahan pada generate bilangan Fibonacci.
 
-## Installation & updates
+## How To Use
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Untuk menggunakan aplikasi ini di lingkungan [local](localhost:8080), ikuti langkah-langkah berikut:
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+1. Clone the repository
 
-## Setup
+   ```bash
+   git clone https://github.com/arizkinewbie/fibonacci-phiraka
+   ```
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+2. Go into the repository
 
-## Important Change with index.php
+   ```bash
+   cd fibonacci-phiraka
+   ```
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+3. Install dependencies
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+   ```bash
+   composer install
+   ```
 
-**Please** read the user guide for a better explanation of how CI4 works!
+4. Run the app
 
-## Repository Management
+   ```bash
+   php spark serve
+   ```
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+5. Open [http://localhost:8080](http://localhost:8080) in your browser
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+## Credits
 
-## Server Requirements
+Website ini menggunakan beberapa sumber daya berikut:
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+- [CodeIgniter 4](https://codeigniter.com/)
+- [MySql](https://www.mysql.com/)
+- [Bootstrap 5](https://getbootstrap.com/)
+- [jQuery](https://jquery.com/)
+- [DataTables](https://datatables.net/)
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+## You may also like
 
-> [!WARNING]
-> The end of life date for PHP 7.4 was November 28, 2022.
-> The end of life date for PHP 8.0 was November 26, 2023.
-> If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> The end of life date for PHP 8.1 will be November 25, 2024.
+- [Aplikasi-Sederhana-Phiraka](https://github.com/amitmerchant1990/pomolectron) - User Management Website
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+## License
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Proyek ini dilisensikan di bawah [Lisensi MIT](LICENSE).
+
+> [arizkinewbie.com](https://www.arizkinewbie.com) &nbsp;&middot;&nbsp;
+> GitHub [@arizkinewbie](https://github.com/amitmerchant1990)

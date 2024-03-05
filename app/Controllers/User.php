@@ -13,13 +13,13 @@ class User extends BaseController
         }
         $model = new UserModel();
         $data['users'] = $model->findAll();
-        $data['title'] = 'Daftar User';
+        $data['title'] = 'Form daftar user';
         return view('user/list', $data);
     }
 
     public function add()
     {
-        $data['title'] = 'Tambah User Baru';
+        $data['title'] = 'Form tambah user';
         return view('user/add', $data);
     }
 
@@ -39,7 +39,7 @@ class User extends BaseController
     {
         $model = new UserModel();
         $data['user'] = $model->find($id);
-        $data['title'] = 'Edit User';
+        $data['title'] = 'Form ubah user';
         return view('user/edit', $data);
     }
 
@@ -57,6 +57,7 @@ class User extends BaseController
 
     public function delete($id = null)
     {
+        // $data['title'] = 'Form hapus user';
         $model = new UserModel();
         $model->delete($id);
         return redirect()->to('/user');

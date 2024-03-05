@@ -11,7 +11,7 @@ class Auth extends BaseController
         if (session()->get('logged_in')) {
             return redirect()->to('/user');
         }
-        $data['title'] = 'Masuk';
+        $data['title'] = 'Form login';
         return view('auth/login', $data);
     }
 
