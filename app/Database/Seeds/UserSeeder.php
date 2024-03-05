@@ -10,7 +10,7 @@ class UserSeeder extends Seeder
     {
         $data = [
             'username' => 'admin',
-            'password' => password_hash('admin', PASSWORD_DEFAULT),
+            'password' => password_hash('admin123', PASSWORD_DEFAULT),
             'CreateTime' => date('Y-m-d H:i:s'),
         ];
         $this->db->table('tbl_user')->insert($data);
