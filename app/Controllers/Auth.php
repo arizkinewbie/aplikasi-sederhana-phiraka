@@ -33,13 +33,14 @@ class Auth extends BaseController
                     'logged_in' => TRUE,
                 ];
                 $session->set($ses_data);
-                return redirect()->to('/');
+                $session->setFlashdata('msg', 'LOGIN SUKSES');
+                return redirect()->to('/user');
             } else {
-                $session->setFlashdata('msg', 'Password salah.');
+                $session->setFlashdata('msg', 'LOGIN GAGAL<br>Password salah.');
                 return redirect()->to('/login');
             }
         } else {
-            $session->setFlashdata('msg', 'Nama tidak ditemukan.');
+            $session->setFlashdata('msg', 'LOGIN GAGAL<br>Nama tidak ditemukan.');
             return redirect()->to('/login');
         }
     }

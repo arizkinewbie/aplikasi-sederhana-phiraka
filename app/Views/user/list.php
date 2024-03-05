@@ -5,6 +5,11 @@
     </h2>
     <hr />
     <a href="<?= base_url('user/add'); ?>" class="btn btn-primary mb-3">Tambah User Baru</a>
+    <?php if (session()->getFlashdata('msg')) : ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('msg'); ?>
+        </div>
+    <?php endif; ?>
     <table id="usersTable" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
