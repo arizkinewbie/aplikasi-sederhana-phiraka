@@ -6,6 +6,11 @@ use App\Models\UserModel;
 
 class Auth extends BaseController
 {
+    protected $session;
+    public function __construct()
+    {
+        $this->session = session();
+    }
     public function index()
     {
         if (session()->get('logged_in')) {
@@ -17,7 +22,7 @@ class Auth extends BaseController
 
     public function login()
     {
-        $session = session();
+
         $model = new UserModel();
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
@@ -32,23 +37,22 @@ class Auth extends BaseController
                     'username' => $data['username'],
                     'logged_in' => TRUE,
                 ];
-                $session->set($ses_data);
-                $session->setFlashdata('msg', 'LOGIN SUKSES');
+                $this->session->set($ses_data);
+                $this->session->setFlashdata('msg', 'LOGIN SUKSES');
                 return redirect()->to('/user');
             } else {
-                $session->setFlashdata('msg', 'LOGIN GAGAL<br>Password salah.');
+                $this->session->setFlashdata('msg', 'LOGIN GAGAL<br>Password salah.');
                 return redirect()->to('/login');
             }
         } else {
-            $session->setFlashdata('msg', 'LOGIN GAGAL<br>Nama tidak ditemukan.');
+            $this->session->setFlashdata('msg', 'LOGIN GAGAL<br>Nama tidak ditemukan.');
             return redirect()->to('/login');
         }
     }
 
     public function logout()
     {
-        $session = session();
-        $session->destroy();
+        $this->session->destroy();
         return redirect()->to('/');
     }
 }

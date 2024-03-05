@@ -6,6 +6,11 @@ use App\Models\UserModel;
 
 class User extends BaseController
 {
+    protected $session;
+    public function __construct()
+    {
+        $this->session = session();
+    }
     public function index()
     {
         if (!session()->get('logged_in')) {
@@ -32,6 +37,7 @@ class User extends BaseController
             'CreateTime' => date('Y-m-d H:i:s')
         ];
         $model->save($data);
+        $this->session->setFlashdata('msg', 'TAMBAH USER BERHASIL');
         return redirect()->to('/user');
     }
 
@@ -52,6 +58,7 @@ class User extends BaseController
             'password' => $this->request->getPost('password'),
         ];
         $model->update($id, $data);
+        $this->session->setFlashdata('msg', 'EDIT USER BERHASIL');
         return redirect()->to('/user');
     }
 
@@ -60,6 +67,7 @@ class User extends BaseController
         // $data['title'] = 'Form hapus user';
         $model = new UserModel();
         $model->delete($id);
+        $this->session->setFlashdata('msg', 'HAPUS USER BERHASIL');
         return redirect()->to('/user');
     }
 }
