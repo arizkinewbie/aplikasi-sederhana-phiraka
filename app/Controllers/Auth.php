@@ -30,7 +30,7 @@ class Auth extends BaseController
 
         if ($data) {
             $pass = $data['password'];
-            $verify_pass = password_verify($password, $pass);
+            $verify_pass = (md5($password) === $pass);
             if ($verify_pass) {
                 $ses_data = [
                     'id' => $data['id'],
