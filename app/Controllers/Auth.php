@@ -27,8 +27,7 @@ class Auth extends BaseController
         $verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptchaResponse}");
         $status = json_decode($verify);
         if (!$status->success) {
-            $this->session->setFlashdata('msg', 'LOGIN GAGAL<br>Verifikasi reCAPTCHA gagal.');
-            return redirect()->to('/login');
+            return $this->response->setJSON(['status' => 'error', 'message' => 'LOGIN GAGAL<br>Verifikasi reCAPTCHA gagal.']);
         }
 
         $model = new UserModel();
@@ -46,15 +45,12 @@ class Auth extends BaseController
                     'logged_in' => TRUE,
                 ];
                 $this->session->set($ses_data);
-                $this->session->setFlashdata('msg', 'LOGIN SUKSES');
-                return redirect()->to('/user');
+                return $this->response->setJSON(['status' => 'success', 'message' => 'LOGIN SUKSES', 'redirect' => '/user']);
             } else {
-                $this->session->setFlashdata('msg', 'LOGIN GAGAL<br>Password salah.');
-                return redirect()->to('/login');
+                return $this->response->setJSON(['status' => 'error', 'message' => 'LOGIN GAGAL<br>Password salah.']);
             }
         } else {
-            $this->session->setFlashdata('msg', 'LOGIN GAGAL<br>Nama tidak ditemukan.');
-            return redirect()->to('/login');
+            return $this->response->setJSON(['status' => 'error', 'message' => 'LOGIN GAGAL<br>Username tidak ditemukan.']);
         }
     }
 

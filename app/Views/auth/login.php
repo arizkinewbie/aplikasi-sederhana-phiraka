@@ -17,7 +17,7 @@
                 <i toggle="#password" class="bi bi-eye-fill toggle-password position-absolute" style="top: 70%; right: 15px; transform: translateY(-50%); cursor: pointer;"></i>
             </div>
             <div class="mb-3">
-                <div class="g-recaptcha" data-sitekey="6LcH2IspAAAAACoPhE-cWlpcCBJeOgnoC2pm1Tim" required>
+                <div class="g-recaptcha" data-sitekey="6LcH2IspAAAAACoPhE-cWlpcCBJeOgnoC2pm1Tim">
                 </div>
             </div>
             <div class="d-grid gap-2">
