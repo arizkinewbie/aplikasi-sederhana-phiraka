@@ -22,6 +22,14 @@ class Auth extends BaseController
 
     public function login()
     {
+        $recaptchaResponse = $this->request->getVar('g-recaptcha-response');
+        $secretKey = getenv('SECRET_KEY');
+        $verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptchaResponse}");
+        $status = json_decode($verify);
+        if (!$status->success) {
+            $this->session->setFlashdata('msg', 'LOGIN GAGAL<br>Verifikasi reCAPTCHA gagal.');
+            return redirect()->to('/login');
+        }
 
         $model = new UserModel();
         $username = $this->request->getVar('username');
