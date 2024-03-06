@@ -52,12 +52,17 @@ class User extends BaseController
         $id = $this->request->getPost('id');
         $data = [
             'username' => $this->request->getPost('username'),
-            'password' => $this->request->getPost('password'),
         ];
+        $password = $this->request->getPost('password');
+        if (!empty($password)) {
+            $data['password'] = $password;
+        }
+
         $model->update($id, $data);
         $this->session->setFlashdata('msg', 'EDIT USER BERHASIL');
         return redirect()->to('/user');
     }
+
 
     public function delete($id = null)
     {
