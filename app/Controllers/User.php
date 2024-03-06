@@ -13,9 +13,6 @@ class User extends BaseController
     }
     public function index()
     {
-        if (!session()->get('logged_in')) {
-            return redirect()->to('/');
-        }
         $model = new UserModel();
         $data['users'] = $model->findAll();
         $data['title'] = 'Form daftar user';

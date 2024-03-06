@@ -7,15 +7,17 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-// Route to show login form and handle login/logout
+// Routes to show login form and handle login/logout
 $routes->get('/login', 'Auth::index');
 $routes->post('auth/login', 'Auth::login');
 $routes->get('auth/logout', 'Auth::logout');
 
 // Routes for user management
-$routes->get('user', 'User::index');
-$routes->get('user/add', 'User::add');
-$routes->post('user/create', 'User::create');
-$routes->get('user/edit/(:segment)', 'User::edit/$1');
-$routes->post('user/update/(:segment)', 'User::update/$1');
-$routes->get('user/delete/(:segment)', 'User::delete/$1');
+$routes->group('user', ['filter' => 'login'], function ($routes) {
+    $routes->get('', 'User::index');
+    $routes->get('add', 'User::add');
+    $routes->post('create', 'User::create');
+    $routes->get('edit/(:segment)', 'User::edit/$1');
+    $routes->post('update/(:segment)', 'User::update/$1');
+    $routes->get('delete/(:segment)', 'User::delete/$1');
+});

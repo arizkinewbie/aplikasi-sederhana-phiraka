@@ -6,7 +6,6 @@ class Home extends BaseController
 {
     public function index()
     {
-        session();
         if (!session()->get('logged_in')) {
             return redirect()->to('/login');
         }
