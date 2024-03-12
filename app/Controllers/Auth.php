@@ -41,7 +41,7 @@ class Auth extends BaseController
             if ($verify_pass) {
                 $ses_data = [
                     'id' => $data['id'],
-                    'username' => $data['username'],
+                    'name' => $data['username'],
                     'logged_in' => TRUE,
                 ];
                 $this->session->set($ses_data);
