@@ -69,6 +69,11 @@ class User extends BaseController
         // $data['title'] = 'Form hapus user';
         $model = new UserModel();
         $model->delete($id);
+        if (session('id') == $id) {
+            $this->session->remove('logged_in');
+            $this->session->remove('name');
+            $this->session->remove('id');
+        }
         $this->session->setFlashdata('msg', 'HAPUS USER BERHASIL');
         return redirect()->to('/user');
     }
