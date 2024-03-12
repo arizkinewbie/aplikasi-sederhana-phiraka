@@ -1,4 +1,7 @@
-<?php echo view('templates/header'); ?>
+<?php echo view('templates/header');
+$flashMessage = session()->getFlashdata('msg');
+$isFlashMessageExists = !empty($flashMessage);
+?>
 
 <div class="container mt-5">
     <h2>FORM LOGIN</h2>
@@ -29,6 +32,16 @@
 
 <?php echo view('templates/footer'); ?>
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const alertBox = document.querySelector('.alert');
+        const isFlashMessageExists = <?php echo json_encode($isFlashMessageExists); ?>;
+
+        if (isFlashMessageExists) {
+            alertBox.className = 'alert alert-danger';
+            alertBox.style.display = 'block';
+            alertBox.innerHTML = '<?= esc($flashMessage); ?>';
+        }
+    });
     document.addEventListener("DOMContentLoaded", function() {
         const loginForm = document.getElementById("loginForm");
         const alertBox = document.querySelector('.alert');
