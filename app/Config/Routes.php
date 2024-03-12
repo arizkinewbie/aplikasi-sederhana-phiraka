@@ -17,7 +17,7 @@ $routes->group('user', ['filter' => 'login'], function ($routes) {
     $routes->get('', 'User::index');
     $routes->get('add', 'User::add');
     $routes->post('create', 'User::create');
-    $routes->get('edit/(:segment)', 'User::edit/$1');
-    $routes->post('update/(:segment)', 'User::update/$1');
-    $routes->get('delete/(:segment)', 'User::delete/$1');
+    $routes->get('edit/(:num)', 'User::edit/$1');
+    $routes->post('update/(:num)', 'User::update/$1');
+    $routes->get('delete/(:num)', 'User::delete/$1');
 });
