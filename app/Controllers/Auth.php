@@ -45,6 +45,7 @@ class Auth extends BaseController
                     'logged_in' => TRUE,
                 ];
                 $this->session->set($ses_data);
+                $this->session->setFlashdata('msg', 'Welcome back, ' . $data['username']);
                 return $this->response->setJSON(['status' => 'success', 'message' => 'LOGIN SUKSES', 'redirect' => '/user']);
             } else {
                 return $this->response->setJSON(['status' => 'error', 'message' => 'LOGIN GAGAL<br>Password salah.']);
