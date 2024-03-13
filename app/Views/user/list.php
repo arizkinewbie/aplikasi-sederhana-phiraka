@@ -6,11 +6,11 @@
     <hr />
     <a href="<?= base_url('user/add'); ?>" class="btn btn-primary mb-3">Tambah User Baru</a>
     <?php if (session()->getFlashdata('msg')) : ?>
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success col-md-3" role="alert">
             <?= session()->getFlashdata('msg'); ?>
         </div>
     <?php endif; ?>
-    <table id="usersTable" class="table table-striped table-bordered" style="width:100%">
+    <table id="usersTable" class="table table-striped table-bordered display nowrap" style="width:100%">
         <thead>
             <tr>
                 <th>No</th>
@@ -38,6 +38,8 @@
 <script>
     $(document).ready(function() {
         $('#usersTable').DataTable({
+            "scrollX": true,
+            "scrollCollapse": true,
             "columnDefs": [{
                 "searchable": false,
                 "orderable": false,
@@ -81,7 +83,7 @@
         button.addEventListener('click', function(e) {
             e.preventDefault();
             Swal.fire({
-                title: 'LOGOUT BERHASIL', 
+                title: 'LOGOUT BERHASIL',
                 html: 'Anda akan logout dalam 3 detik...',
                 icon: 'success',
                 timer: 3000,
